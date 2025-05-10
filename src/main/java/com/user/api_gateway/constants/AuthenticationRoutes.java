@@ -13,7 +13,7 @@ public enum AuthenticationRoutes {
     SIGN_OUT("/api/auth/sign_out", new Roles[]{Roles.ADMINISTRATOR, Roles.PUBLISHER, Roles.JOURNALIST, Roles.READER, Roles.PREMIUM, Roles.NEWS_ENTERPRICE}),
     SIGN_OUT_ALL("/apiauth/sign_out_all", new Roles[]{Roles.ADMINISTRATOR, Roles.PUBLISHER, Roles.JOURNALIST, Roles.READER, Roles.PREMIUM, Roles.NEWS_ENTERPRICE}),
     VALIDATE("/api/auth/validate", Roles.values()),
-    REFRESH_TOKEN("/api/auth/refresh_token", new Roles[]{Roles.ADMINISTRATOR, Roles.PUBLISHER, Roles.JOURNALIST, Roles.READER, Roles.PREMIUM, Roles.NEWS_ENTERPRICE}),
+    REFRESH_TOKEN("/api/auth/refresh_token", Roles.values()),
     SEND_RESET_PASSWORD_EMAIL("/api/auth/send_reset_password_email", Roles.values()),
     RESET_PASSWORD_VALIDATED("/api/auth/reset_password_validated", new Roles[]{Roles.ADMINISTRATOR, Roles.PUBLISHER, Roles.JOURNALIST, Roles.READER, Roles.PREMIUM, Roles.NEWS_ENTERPRICE}),
     VALIDATE_EMAIL("/api/auth/validate_email", new Roles[]{Roles.ADMINISTRATOR, Roles.PUBLISHER, Roles.JOURNALIST, Roles.READER, Roles.PREMIUM, Roles.NEWS_ENTERPRICE}),

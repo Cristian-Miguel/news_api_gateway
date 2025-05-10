@@ -7,18 +7,20 @@ import lombok.Getter;
 @Getter
 public enum Roles {
 
-    PUBLIC("Public"),
-    ADMINISTRATOR("Administrator"),
-    NEWS_ENTERPRICE("News enterprice"),
-    PUBLISHER("Publisher"),
-    JOURNALIST("Journalist"),
-    READER("Reader"),
-    PREMIUM("Premium")
+    PUBLIC("ROLE_PUBLIC","Public"),
+    ADMINISTRATOR("ROLE_ADMINISTRATOR","Administrator"),
+    NEWS_ENTERPRICE("ROLE_NEWS_ENTERPRICE","News enterprice"),
+    PUBLISHER("ROLE_PUBLISHER","Publisher"),
+    JOURNALIST("ROLE_JOURNALIST","Journalist"),
+    READER("ROLE_READERS","Reader"),
+    PREMIUM("ROLE_PREMIUM","Premium")
     ;
 
+    String code;
     String nameFormat;
 
-    private Roles(String nameFormat){
+    private Roles(String code, String nameFormat){
+        this.code = code;
         this.nameFormat = nameFormat;
     }
 

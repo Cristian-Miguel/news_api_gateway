@@ -1,5 +1,6 @@
 package com.user.api_gateway.utils;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.function.Function;
@@ -47,17 +48,22 @@ public class JwtUtils {
                 .compact();
     }
 
+    // private SecretKey getKey() {
+    //     return Keys.hmacShaKeyFor(Decoders.BASE64.decode(SECRET_KEY));
+    // }
+
     private SecretKey getKey() {
-        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(SECRET_KEY));
+        return Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
     }
 
     public Claims getAllClaims(String token){
-        return Jwts
+        Claims claims = Jwts
                 .parser()
                 .verifyWith(getKey())
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
+        return claims;
     }
 
     public <T> T getClaim(String token, Function<Claims, T> claimsResolver){

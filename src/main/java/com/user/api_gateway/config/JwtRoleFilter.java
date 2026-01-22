@@ -86,7 +86,9 @@ public class JwtRoleFilter implements HandlerFilterFunction<ServerResponse, Serv
         } catch (ValidationServiceRouteAccessException ex){
             return handleErrorResponse(request, ex.getMessage(), ex.getStatus(), uri);
         } catch (Exception ex){
-            return handleErrorResponse(request, "Invalid token.", HttpStatus.UNAUTHORIZED, uri);
+            ex.printStackTrace();
+            //"Invalid token.",
+            return handleErrorResponse(request, ex.getStackTrace().toString(), HttpStatus.UNAUTHORIZED, uri);
         }
     }
 
